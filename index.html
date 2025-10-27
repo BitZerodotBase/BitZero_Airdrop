@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BitZero Airdrop Claim</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/x-icon" sizes="3002x300" href="https://avatars.githubusercontent.com/u/236363013?v=4.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="min.css">
+</head>
+<body>
+
+    <div class="header">
+        <div class="logo-container">
+            <h1 class="glitch" data-text="BITZERO AIRDROP">BITZERO AIRDROP</h1>
+        </div>
+        
+        <div class="wallet-section">
+            <button id="connectButton">[ Connect Wallet ]</button>
+            
+            <div id="walletInfo" class="hidden">
+                <span id="walletAddressDisplay">0x00...0000</span>
+                <button id="disconnectButton" class="small-button">Disconnect</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="grid-layout">
+            <div class="card terminal-card full-width" id="claimCard">
+                <div class="card-header">
+                    <span class="card-title">:: [BIT] Claim Interface</span>
+                    <div class="window-buttons">
+                        <div class="window-button">-</div>
+                        <div class="window-button">□</div>
+                        <div class="window-button">X</div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p id="mainMessage">Please connect your wallet to check your BIT airdrop allocation.</p>
+                    
+                    <div id="userInfo" class="hidden">
+                        <p><strong>Claim Status:</strong> <span id="statusMessage">...</span></p>
+                        <hr style="border-color: #8c00ff50; margin: 15px 0;">
+                        <p class="reward-label">Your Allocation:</p>
+                        <div class="reward-value">
+                            <span id="allocationAmount">0</span> <span id="tokenSymbol"></span>
+                        </div>
+                    </div>
+                    
+                    <div id="taskVerification" class="hidden">
+                        <p class="task-header">Complete Tasks to Claim</p>
+                        <div class="task-item">
+                            <input type="checkbox" id="taskFollowX" name="taskFollowX">
+                            <label for="taskFollowX">
+                                Follow <a id="linkFollowX" href="https://x.com/BitZerodotBase" target="_blank" rel="noopener noreferrer">@BitZerodotBase on X</a>
+                            </label>
+                        </div>
+                        <div class="task-item">
+                            <input type="checkbox" id="taskJoinTelegram" name="taskJoinTelegram">
+                            <label for="taskJoinTelegram">
+                                Join <a id="linkJoinTelegram" href="https://t.me/bitzerodotbase" target="_blank" rel="noopener noreferrer">Telegram Channel</a>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button id="claimButton" class="scanline-button hidden">
+                        [ Claim ]
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="walletModal" class="modal">
+        <div class="modal-content card terminal-card">
+            <div class="card-header">
+                <span class="card-title">:: Select Wallet</span>
+                <span class="close" id="closeModalButton">&times;</span>
+            </div>
+            
+            <div class="card-body">
+                <p style="text-align: left; margin-bottom: 20px; font-size: 1.1em;">> Select a wallet to connect:</p>
+                <div class="wallet-options">
+                    <button class="wallet-button" id="connectMetaMaskButton">
+                        <img src="images/metamask.png" alt="MetaMask">
+                        MetaMask
+                    </button>
+                    <button class="wallet-button" id="connectBitgetButton">
+                        <img src="images/bitget-wallet.jpg" alt="Bitget">
+                        Bitget Wallet
+                    </button>
+                    <button class="wallet-button" id="connectOkxButton">
+                        <img src="images/okx-wallet.png" alt="OKX">
+                        OKX Wallet
+                    </button>
+                    <button class="wallet-button" id="connectRabbyButton">
+                        <img src="images/rabby-wallet.png" alt="Rabby">
+                        Rabby Wallet
+                    </button>
+                </div>
+            </div>
+            </div>
+    </div>
+    </div>
+    <div class="loader-container" id="loaderContainer">
+        <div class="spinner"></div>
+        <p id="loaderText">Waiting for confirmation...</p>
+    </div>
+
+    <div id="tx-toast-container"></div>
+
+    <div class="footer">
+        <p>Powered by BitZero</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="set.js"></script>
+</body>
+</html>
